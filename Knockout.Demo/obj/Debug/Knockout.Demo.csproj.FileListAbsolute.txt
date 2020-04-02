@@ -1,0 +1,6 @@
+D:\Programming\KnockoutJs\sample\examples\Knockout.Demo\Knockout.Demo\bin\Knockout.Demo.dll.config
+D:\Programming\KnockoutJs\sample\examples\Knockout.Demo\Knockout.Demo\bin\Knockout.Demo.dll
+D:\Programming\KnockoutJs\sample\examples\Knockout.Demo\Knockout.Demo\bin\Knockout.Demo.pdb
+D:\Programming\KnockoutJs\sample\examples\Knockout.Demo\Knockout.Demo\obj\Debug\Knockout.Demo.csprojAssemblyReference.cache
+D:\Programming\KnockoutJs\sample\examples\Knockout.Demo\Knockout.Demo\obj\Debug\Knockout.Demo.dll
+D:\Programming\KnockoutJs\sample\examples\Knockout.Demo\Knockout.Demo\obj\Debug\Knockout.Demo.pdb

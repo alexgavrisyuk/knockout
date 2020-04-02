@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\exoft-user\.Rider2019.3\config\consoles\db" t="IncludeRecursive" />
+    <e p="C:\Users\exoft-user\.Rider2019.3\config\extensions" t="IncludeRecursive" />
+    <e p="C:\Users\exoft-user\.Rider2019.3\config\scratches" t="IncludeRecursive" />
+    <e p="C:\Users\exoft-user\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\exoft-user\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_Knockout.Demo.1067635349.00" t="ExcludeRecursive" />
+    <e p="D:\Programming\KnockoutJs\sample\examples\Knockout.Demo" t="IncludeFlat">
+      <e p="Knockout.Demo" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="css" t="Include">
+          <e p="demo.css" t="Include" />
+          <e p="images" t="Include">
+            <e p="modal-back.png" t="Include" />
+            <e p="sprite-base-1.png" t="Include" />
+            <e p="sprite-base-2.png" t="Include" />
+            <e p="sprite-media-1.png" t="Include" />
+            <e p="sprite-media-3.png" t="Include" />
+          </e>
+        </e>
+        <e p="index.html" t="Include" />
+        <e p="Knockout.Demo.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include" />
+        <e p="scripts" t="Include">
+          <e p="demo.data-mock.js" t="Include" />
+          <e p="demo.itemViewModel.js" t="Include" />
+          <e p="demo.js" t="Include" />
+          <e p="demo.listViewModel.js" t="Include" />
+          <e p="devbridge.ko.extensions.js" t="Include" />
+          <e p="infuser-amd.js" t="Include" />
+          <e p="infuser-amd.min.gz.js" t="Include" />
+          <e p="infuser-amd.min.js" t="Include" />
+          <e p="infuser.js" t="Include" />
+          <e p="infuser.min.gz.js" t="Include" />
+          <e p="infuser.min.js" t="Include" />
+          <e p="jquery-1.6-vsdoc.js" t="Include" />
+          <e p="jquery-1.6.js" t="Include" />
+          <e p="jquery-1.6.min.js" t="Include" />
+          <e p="knockout-2.2.0.js" t="Include" />
+          <e p="knockout-3.5.1.debug.js" t="Include" />
+          <e p="knockout-3.5.1.js" t="Include" />
+          <e p="knockout.mapping-latest.debug.js" t="Include" />
+          <e p="knockout.mapping-latest.js" t="Include" />
+          <e p="knockout.validation.js" t="Include" />
+          <e p="knockout.validation.min.js" t="Include" />
+          <e p="knockout.validation.min.js.map" t="Include" />
+          <e p="koExternalTemplateEngine-amd.js" t="Include" />
+          <e p="koExternalTemplateEngine-amd.min.js" t="Include" />
+          <e p="koExternalTemplateEngine.js" t="Include" />
+          <e p="koExternalTemplateEngine.min.js" t="Include" />
+          <e p="koExternalTemplateEngine_all.js" t="Include" />
+          <e p="koExternalTemplateEngine_all.min.js" t="Include" />
+          <e p="TrafficCop-amd.js" t="Include" />
+          <e p="TrafficCop-amd.min.gz.js" t="Include" />
+          <e p="TrafficCop-amd.min.js" t="Include" />
+          <e p="TrafficCop.js" t="Include" />
+          <e p="TrafficCop.min.gz.js" t="Include" />
+          <e p="TrafficCop.min.js" t="Include" />
+        </e>
+        <e p="web.config" t="Include" />
+      </e>
+      <e p="Knockout.Demo.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

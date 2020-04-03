@@ -1,49 +1,7 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Default ignored files
+/workspace.xml
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
 
-# testing
-/coverage
-
-# production
-/build
-
-# misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# lock files
-yarn.lock
-*.xml
-*.xml
-*.dll
-*.exe
-*.map
-*.xdt
-*.p7s
-*.xml
-*.pdb
-*.rsp
-*.targets
-*.eot
-*.svg
-*.ttf
-*.woff
-*.woff2
-*.props
-*.psd1
-*.psm1
-*.ps1
 # Logs
 logs
 *.log

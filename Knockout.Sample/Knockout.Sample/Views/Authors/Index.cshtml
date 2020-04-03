@@ -1,0 +1,249 @@
+﻿@model IEnumerable<Knockout.Sample.ViewModels.AuthorViewModel>
+
+@using Knockout.Sample.Extensions
+@using Knockout.Sample.Models
+
+
+@{
+    ViewBag.Title = "Authors";
+    var queryOptions = (QueryOptions)ViewBag.QueryOptions;
+
+}
+<h2>Authors</h2>
+<p>@Html.ActionLink("Create New", "Create")</p>
+@* *@
+@* <p>hi my name is : <span data-bind="text: name"></span></p> *@
+@* <p>hi my name is : <span data-bind="text: getName()"></span></p> *@
+@* <p>hi my name is : <span data-bind="text: (isNew()) ? 'new' : 'old'"></span></p> *@
+@* *@
+@* <table> *@
+@*     <thead> *@
+@*     <tr> *@
+@*         <th>Title</th> *@
+@*         <th>ISBN</th> *@
+@*         <th>Published</th> *@
+@*     </tr> *@
+@*     </thead> *@
+@*     <tbody data-bind="foreach: { data: books, afterRender: loadImage }"> *@
+@*     <tr> *@
+@*         $1$ <td><img src="" data-bind="attr { id: 'image_' + isbn }" /></td> #1# *@
+@*         <td data-bind="text: title"></td> *@
+@*         <td data-bind="text: isbn"></td> *@
+@*         <td data-bind="text: formatDate(publishedDate)"></td> *@
+@*     </tr> *@
+@*     </tbody> *@
+@* </table> *@
+
+
+@* <div id="book" data-bind="with: book"> *@
+@*     <h1 data-bind="text: title"></h1> *@
+@*     <h2 data-bind="text: formatDate(publishedDate)"></h2> *@
+@* </div> *@
+
+@* *@
+@* <div style="display: none" data-bind="visible: authors.length > 0"> *@
+@* <table class="table table-bordered table-striped"> *@
+@*     <thead> *@
+@*     <tr> *@
+@*        <th>@Html.BuildKnockoutSortableLink("First Name", "Index", "firstName")</th> *@
+@*         <th>@Html.BuildKnockoutSortableLink("Last Name", "Index", "lastName")</th> *@
+@* *@
+@*         <th>Actions</th> *@
+@*     </tr> *@
+@*     </thead> *@
+@*      *@
+@* </table> *@
+    @* @Html.BuildNextPreviousLinks(queryOptions, "Index") *@
+@* </div> *@
+@* *@
+@* <span data-bind="text: firstName"></span> *@
+@* <span data-bind="text: lastName"></span> *@
+@* <span data-bind="text: fullName"></span> *@
+
+@* <button type="button" data-bind="click: updateObservable"> Click </button> *@
+@* *@
+@* <div data-bind="visible: showExtraData" style="display: none"> *@
+@*  Now you see me! *@
+@*  </div> *@
+
+
+@* <table> *@
+@*     <thead> *@
+@*     <tr> *@
+@*         <th>Title</th> *@
+@*         <th>ISBN</th> *@
+@*         <th>Published</th> *@
+@*     </tr> *@
+@*     </thead> *@
+@*     <tbody data-bind="template: { name: 'book-template', foreach: books }"> *@
+@*     </tbody> *@
+@* </table> *@
+@* *@
+@* <script type="text/html" id="book-template"> *@
+@*     <tr> *@
+@*         <td data-bind="text: title"></td>  *@
+@*         <td data-bind="text: isbn"></td> *@
+@*         <td data-bind="text: $parent.formatDate(publishedDate)"></td> *@
+@*     </tr> *@
+@* </script> *@
+
+    @* *@
+    @* <form data-bind="submit: validateAndSave, with: user"> *@
+    @*     <input type="text" data-bind="value: firstName" placeholder="Enter your first name" required/> <br/> *@
+    @*     <input type="text" data-bind="value: lastName" placeholder="Enter your last name" required/> <br/> *@
+    @*     <input type="email" data-bind="value: email" placeholder="Enter your email" required/> <br/> *@
+    @*      *@
+    @*     <input type="submit" data-bind="value: (id == 0) ? 'Create' : 'Update'"/> *@
+    @* </form> *@
+
+<div style="float: left; width: 50%">
+    <ul data-bind="foreach: categories">
+        <li><a href="#" data-bind="click: $parent.showProducts, text: name"></a></li>
+    </ul>
+    
+    <ul data-bind="foreach: availableProducts">
+        <p data-bind="template: {name: 'item-template', foreach: $data}"></p>
+        <p><button data-bind="click: $parent.addItem"> Add to card </button></p>
+    </ul>
+</div>
+
+<div style="float: left; width: 50%">
+    <h1> Items in cart: <span data-bind="text:cartItems().length"></span></h1>
+    
+    <ul data-bind="foreach: { data: cartItems, afterAdd: fadeIn, beforeRemove: fadeOut }">
+        
+        <li>
+            <ul data-bind="template: {name: 'item-template', foreach: $data}"></ul>
+            
+            <p><button data-bind="click: $parent.removeItem"> Remove </button></p>
+        </li>
+        
+    </ul>
+    
+    <h3> Total $ <span data-bind="text: cardTotal"></span></h3>
+    
+</div>
+
+<script type="text/html" id="item-template">
+    <h2 data-bind="text: getTitle()"></h2>
+    <p data-bind="html: getDescription()"> </p>
+    <p>Price: $ <span data-bind="text: price"></span> </p>
+</script>
+
+@section Scripts {
+
+   @* @Scripts.Render("/Scripts/ViewModels/AuthorIndexViewModel.js") *@
+ <script>
+ function ViewModel(categories) {
+     var self = this;
+     
+     self.categories = categories;
+     
+     self.availableProducts = ko.observableArray([]);
+     
+     self.cartItems = ko.observableArray([]);
+     
+     self.cardTotal = ko.computed(function() {
+       var total = 0;
+        for (var i = 0; i < self.cartItems().length; i++)
+        total += self.cartItems()[i].price;
+        return total;
+     });
+     
+     self.showProducts = function(category) {
+       self.availableProducts(category.items);
+     };
+     
+     self.addItem = function(item) {
+       self.cartItems.push(item);
+     };
+     
+     self.removeItem = function(item) {
+       self.cartItems.remove(item);
+     };
+     
+     self.fadeIn = function(element) {
+       $(element).hide().fadeIn('slow');
+     }
+     
+     self.fadeOut = function(element) {
+          $(element).slideUp(function() {
+            $(element).remove();
+          });
+      };
+ };
+ 
+var categories = [
+     new Category(1, "Books", [
+        new Book("1", "Book 1", "Book 1 Description", 1.99),
+        new Book("2", "Book 2", "Book 2 Description", 2.99),
+        new Book("3", "Book 3", "Book 3 Description", 3.99)
+     ]),
+     new Category(2, "Movies", [
+         new Movie("Movie 1", "Movie 1 Description", 120, 4.99),
+         new Movie("Movie 2", "Movie 2 Description", 160, 5.99),
+         new Movie("Movie 3", "Movie 3 Description", 110, 6.99)
+     ]),
+     new Category(3, "Music", [
+         new Album("Artist 1", "Album 1", 10, 4.99),
+         new Album("Artist 2", "Album 2", 8, 7.99),
+         new Album("Artist 3", "Album 3", 12, 6.99)
+     ])
+];
+ 
+    function Category(id, name, items) {
+         this.id = id;
+         this.name = name;
+         this.items = items;
+    };
+    function Book(isbn, title, description, price) {
+         var self = this;
+         self.isbn = isbn;
+         self.title = title;
+         self.description = description;
+         self.price = price;
+         self.getTitle = function() {
+            return self.title;
+         };
+             self.getDescription = function() {
+             return self.description;
+         };
+    };
+    function Movie(title, description, movie_length, price) {
+         var self = this;
+         self.title = title;
+         self.description = description;
+         self.movie_length = movie_length;
+         self.price = price;
+         self.getTitle = function() {
+             return self.title;
+         };
+         self.getDescription = function() {
+             return 'Summary: ' + self.description + '<br/>' +
+             'Movie length: ' + self.movie_length;
+         };
+    };
+    function Album(artist, name, number_of_songs, price) {
+         var self = this;
+         self.artist = artist;
+         self.name = name;
+         self.number_of_songs = number_of_songs;
+         self.price = price;
+         self.getTitle = function() {
+             return self.name;
+         };
+         self.getDescription = function() {
+         return 'Artist: ' + self.artist + '<br/>' +
+         'Number of songs: ' + self.number_of_songs;
+         };
+    };
+
+     
+     var viewModel1 = new ViewModel(categories);
+     ko.applyBindings(viewModel1);
+     
+ 
+ 
+ </script>
+
+}
